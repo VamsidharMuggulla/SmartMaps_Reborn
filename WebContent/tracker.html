@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height:none;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  </head>
+  <body>
+  <div>
+  <button onclick="startTrack()">Start</button>
+  <button onclick="stopTrack()">Stop</button>
+  </div>
+    <div id="map"></div>
+    <script>
+var latitude,longitude;
+var tracking;
+function getLocation() 
+{
+    if (navigator.geolocation) 
+	{
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } 
+	else 
+	{ 
+        document.writeln("Geolocation is not supported by this browser.");
+    }
+} 
+function showPosition(position)
+{
+
+	var div = document.getElementById('cordinates');
+	latitude=position.coords.latitude;
+	longitude=position.coords.longitude;
+	console.log(latitude);
+	console.log(longitude);
+	div.innerHTML = div.innerHTML+"<br>Lat : "+latitude+"Lon : "+longitude;
+	
+}
+function initMap() {
+	var map = new google.maps.Map(document.getElementById('map'), {
+	    center: {lat: -34.397, lng: 150.644},
+	    zoom: 6
+	  });
+	 
+}
+function startTrack()
+{
+		getLocation();
+		(function($){
+			$.ajax({
+				
+			    url: 'http://localhost:8080/SmartMaps/tracker/vehicle/location/update',
+			    type: 'POST',
+			    data: 
+			    	{
+			    		latitude : latitude,  
+			    		longitude: longitude,
+			    		trackerID: '1TNK',
+			    		status: 'started' 
+			    	},
+			    dataType: 'text',
+			    contentType: 'application/x-www-form-urlencoded',
+			    success: function( data, textStatus, jQxhr ){
+			        resp = JSON.parse(data);
+			        console.log(data); 
+			    },
+			    error: function (jqXhr, textStatus, errorThrown) {
+			    	console.log(errorThrown);
+			    }
+			});
+			    })(jQuery);
+		tracking=setTimeout(startTrack, 10000);
+}
+function stopTrack()
+{
+	clearTimeout(tracking);
+	(function($){
+		$.ajax({
+			
+		    url: 'http://localhost:8080/SmartMaps/tracker/vehicle/location/update',
+		    type: 'POST',
+		    data: 
+		    	{
+		    		latitude : 'NULL',  
+		    		longitude: 'NULL',
+		    		trackerID: '1TNK',
+		    		status: 'stopped' 
+		    	},
+		    dataType: 'text',
+		    contentType: 'application/x-www-form-urlencoded',
+		    success: function( data, textStatus, jQxhr ){
+		        resp = JSON.parse(data);
+		        console.log(data); 
+		    },
+		    error: function (jqXhr, textStatus, errorThrown) {
+		    	console.log(errorThrown);
+		    }
+		});
+		    })(jQuery);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlZWSTsJPv3yRfVUnSxaXtbl-Dv6Bspek&signed_in=false&callback=initMap"
+        async defer></script>   
+<div id="cordinates">
+
+</div>
+</body>
+</html>
+

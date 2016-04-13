@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>SmartMaps</display-name>
+
+  <servlet>
+    <display-name>UserLogin</display-name>
+    <servlet-name>UserLogin</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>com.smartmaps</param-value>      
+    </init-param>
+     <init-param>
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+     </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserLogin</servlet-name>
+    <url-pattern>/login/*</url-pattern>
+  </servlet-mapping>
+
+
+<servlet>
+<display-name>UserSignUp</display-name>
+<servlet-name>UserSignUp</servlet-name>
+<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+<init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>com.smartmaps</param-value>      
+</init-param>
+     <init-param>
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+     </init-param>
+</servlet>
+
+ <servlet-mapping>
+    <servlet-name>UserSignUp</servlet-name>
+    <url-pattern>/signup/*</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+
+
+
+<servlet>
+<display-name>BusStopsList</display-name>
+<servlet-name>BusStopsList</servlet-name>
+<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+<init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>com.smartmaps</param-value>      
+</init-param>
+     <init-param>
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+     </init-param>
+</servlet>
+
+ <servlet-mapping>
+    <servlet-name>BusStopsList</servlet-name>
+    <url-pattern>/bustops/*</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+
+
+<servlet>
+<display-name>LocationDetails</display-name>
+<servlet-name>LocationDetails</servlet-name>
+<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+<init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>com.smartmaps</param-value>      
+</init-param>
+     <init-param>
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+     </init-param>
+</servlet>
+
+ <servlet-mapping>
+    <servlet-name>LocationDetails</servlet-name>
+    <url-pattern>/locdetails/*</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+<servlet>
+<display-name>TrackerLocationUpdate</display-name>
+<servlet-name>TrackerLocationUpdate</servlet-name>
+<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+<init-param>	
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>com.vehicles</param-value>      
+</init-param>
+     <init-param>
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+     </init-param>
+</servlet>
+
+ <servlet-mapping>
+    <servlet-name>TrackerLocationUpdate</servlet-name>
+    <url-pattern>/tracker/*</url-pattern>
+  </servlet-mapping>
+
+ 
+
+
+
+
+<servlet>
+<display-name>TrackVehicle</display-name>
+<servlet-name>TrackVehicle</servlet-name>
+<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+<init-param>	
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>com.vehicles</param-value>      
+</init-param>
+     <init-param>
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+     </init-param>
+</servlet>
+
+ <servlet-mapping>
+    <servlet-name>TrackVehicle</servlet-name>
+    <url-pattern>/track/*</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+<servlet>
+<display-name>DisplayVehicleLocation</display-name>
+<servlet-name>DisplayVehicleLocation</servlet-name>
+<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+<init-param>	
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>com.vehicles</param-value>      
+</init-param>
+     <init-param>
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+     </init-param>
+</servlet>
+
+ <servlet-mapping>
+    <servlet-name>DisplayVehicleLocation</servlet-name>
+    <url-pattern>/display/*</url-pattern>
+  </servlet-mapping>
+  
+  
+ <filter>
+    <filter-name>CorsFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+    <init-param>
+        <param-name>cors.allowed.origins</param-name>
+        <param-value>http://vamsidhar.esy.es</param-value>
+    </init-param>
+</filter>
+<filter-mapping>
+    <filter-name>CorsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+</web-app>

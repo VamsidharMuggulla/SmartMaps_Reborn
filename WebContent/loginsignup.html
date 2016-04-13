@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Login/Signup</title>
+    
+    
+    <link rel="stylesheet" href="css/normalize.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+        <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+      <link href='https://fonts.googleapis.com/css?family=Raleway:400,500' rel='stylesheet' type='text/css'>
+    
+    <style>
+      #map
+      {
+          display:none;
+      }
+      </style>
+      
+      <script>
+      function checkForm(form)
+      {
+        form.commit.disabled = true;
+        form.commit.value = "Please wait...";
+        return true;
+      }
+      function checkForm1(form)
+      {
+        form.commit1.disabled = true;
+        form.commit1.value = "Please wait...";
+        return true;
+      }
+
+     
+      function handleskip() {
+         
+          //document.cookie="username=skippeduser";  
+          console.log(" Skip Login Cookies Created");
+          window.location.assign("http://smartmaps.cloudplatform.hk/SmartMaps/userhome.html")
+      }
+    
+      </script>
+  </head>
+
+  <body>
+  <!--<script src="js/getcookies.js"></script> -->
+    <div class="logmod"> 
+  <div class="logmod__wrapper">
+      <span class="logmod__wrapper" style="font-family:Raleway;text-shadow: 1px 1px 1px #000;font-size:50px;height:70px;padding:22px;text-align:center;">SmartMaps</span>
+    <div class="logmod__container">
+        <ul class="logmod__tabs">
+        <li data-tabtar="lgm-2"><a href="#">Login</a></li>
+        <li data-tabtar="lgm-1"><a href="#">Sign Up</a></li>
+      </ul>
+      <div class="logmod__tab-wrapper">
+      <div class="logmod__tab lgm-1">
+         <script src="js/getlocation.js"></script>
+        <div class="logmod__heading">
+         <span class="logmod__heading-subtitle"><span id="errormsg1"></span></span>
+        </div>
+        <div class="logmod__form">
+          <form id="signup" name="commit1" onsubmit="return checkForm1(this);" accept-charset="utf-8" class="simform">
+              <div class="sminputs">
+              <div class="input full">
+                <input class="string optional" maxlength="255" name="username" id="user-name" placeholder="Username" type="text" size="50" required="required" />
+              </div>
+            </div>
+            <div class="sminputs">
+              <div class="input full">
+
+                <input class="string optional" maxlength="255" name="email" id="user-email" placeholder="Email" type="email" size="50" required="required" />
+              </div>
+            </div>
+            <div class="sminputs">
+              <div class="input string optional">
+      
+                <input class="string optional" maxlength="255" name="password" id="user-pw" placeholder="Password" type="password" size="50" required="required" />
+              </div>
+              <div class="input string optional">
+        
+                <input class="string optional" maxlength="255" id="user-pw-repeat" placeholder="Repeat password" type="password" size="50" required="required" onblur="checkpwd()"/>
+              </div>
+            </div>
+              <div class="sminputs">
+                  <div class="input full">
+          
+                <input class="string optional" maxlength="50" name="city_town" id="user-location" placeholder="City/Town" type="text" size="50" required="required" />
+              </div>
+              </div>
+               <div class="sminputs">
+                  <div class="input full">
+          
+                <input class="string optional" maxlength="255" name="mobile" id="user-mobile" placeholder="Mobile" type="text" size="50" required="required" />
+              </div>
+              </div>
+            <div class="simform__actions">
+              <input class="sumbit" id="signup" type="submit" value="Create Account" />
+              
+              <span class="simform__actions-sidetext" style="padding:10px;"><a class="special" href="#" target="_blank">
+              <!-- Terms, Conditions &amp; Privacy Ploicy  -->
+              </a> 
+              
+              </span>
+            </div> 
+          </form>
+        </div> 
+
+      </div>
+      <div class="logmod__tab lgm-2">
+       <div class="logmod__heading">
+ 	<span class="logmod__heading-subtitle"><span id="errormsg"></span></span>
+        </div> 
+        <div class="logmod__form">
+          <form id="my-form" onsubmit="return checkForm(this);" accept-charset="utf-8" class="simform">
+            <div class="sminputs">
+              <div class="input full">
+               
+                <input name="username" class="string optional" maxlength="255" id="user-email" placeholder="Email" type="email" size="50" required="required" />
+              </div>
+            </div>
+            <div class="sminputs">
+              <div class="input full">
+               
+                <input class="string optional" name="password" maxlength="255" id="user-pw" placeholder="Password" type="password" size="50" required="required" />
+                						<span class="hide-password">Show</span>
+              </div>
+            </div>
+            <div class="simform__actions">
+            <input class="sumbit" name="commit" id="login" type="submit" value="Log In" />
+           
+            <span class="simform__actions-sidetext" style="padding:8px;"><a class="special" href="#">
+            <!-- Forgot&nbsp;your&nbsp;password? -->
+            </a>
+            
+            </span>
+           </div>
+              
+          </form> 
+      
+                  </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+      <div id="map"></div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+        <script src="js/index.js"></script>
+     
+      <script src="js/loginservice.js"></script>
+	<script src="js/signupservice.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlZWSTsJPv3yRfVUnSxaXtbl-Dv6Bspek&signed_in=false&callback=initMap"
+        async defer></script>   
+        
+</body>
+</html>

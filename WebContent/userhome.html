@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="ISO-8859-1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="http://lipis.github.io/bootstrap-social/bootstrap-social.css">
+  <link rel="stylesheet" href="http://lipis.github.io/bootstrap-social/assets/css/font-awesome.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+   
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500' rel='stylesheet' type='text/css'>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap2-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap2-toggle.min.js"></script>
+
+
+
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script>
+  $(function(){
+	  var currencies = ['Velpur','Peravali Stop'];
+	  
+	  // setup autocomplete function pulling from currencies[] array
+	  $('#destination').autocomplete({
+	    source: currencies,
+		autoFill: true,
+	    onSelect: function (suggestion) {
+			
+	      //var thehtml = '<strong>Currency Name:</strong> ' + suggestion.value + ' <br> <strong>Symbol:</strong> ' + suggestion.data;
+	      //$('#outputcontent').html(thehtml);  
+		  var aut=document.getElementById('destination');
+		  aut.value=suggestion.value;
+	    }
+	  });
+	});
+  
+  
+    </script>
+ 
+
+<style>
+#mapp {
+        
+        height: 400px;
+      }
+  .btn-primaryu {
+    color: #FFF;
+    margin-top:2px;
+    border:none;
+    width:180px;
+    height:100%;
+    //margin-bottom:0px;
+  background: #4CAF50;
+   //font-weight: 700;
+  font-size: 20px;
+  -webkit-appearance:button;
+  cursor:pointer;
+  margin:0;
+  text-transform:none;
+}
+
+#but-panel {
+  height: 38px;
+        width: 100%;
+        overflow: auto;
+        border:1px solid #CCCCCC;
+        text-align:center;
+        margin-right:auto;
+        margin-left:auto;
+}
+
+.btnu {
+    
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -moz-user-select: none;
+    background-image: none;
+    
+    
+}
+
+
+.form {
+  text-align: center;
+  align:center;
+  height: 100%;
+  width: 100%;
+}
+
+
+  html, body {
+        height: 100%;
+        margin: 0;
+        padding: auto;
+      }
+    #map{
+    
+    height:460px;
+    width:100%;
+
+    }
+    li
+{
+  list-style:none;
+}
+#empty
+{
+	border-top:none;
+	border-bottom:none;
+}
+
+
+.-lg {
+width:9px;
+}
+
+
+     .button1
+      {
+  	align:center;
+  text-align:left;
+  cursor: pointer;
+  padding-left:0px;
+  width: 250px;
+  margin-bottom:5px;
+  border:none;
+  margin-left:auto;
+  margin-right:auto;
+  color:#000000;
+  overflow:hidden;
+  height:40px;
+  border-bottom:1px solid #FFFFFF;
+ background: transparent;  	
+      }
+
+.modal-backdrop {
+  z-index: -1;
+}
+
+
+
+    .text
+    {
+      display: inline-block;
+      float: left;
+    }
+    .logmod__tab
+    -wrapper{ position: relative;}
+    #right-panel
+     {
+      
+    position: absolute;
+     top:18%; 
+     left:2%; 
+      width:50%;
+       z-index:99; 
+       height:75%;
+       overflow-y:auto;
+	}
+	right-panel::after 
+	{	
+     background:rgba(200, 54, 54, 0.2);
+     border-radius:6px; 
+	}
+	right-panel::-webkit-scrollbar {
+width: 0px;
+}
+     </style>
+  </head>
+<body>
+<script src="js/userhome.js"></script>
+<div class="logmod">
+    <div class="logmod__wrapper">
+        <span class="logmod__wrapper" style="font-family:Raleway;text-shadow: 1px 1px 1px #000;font-size:50px;height:70px;text-align:center;">SmartMaps
+        <a href="#" id="logoutt" style="color:black">
+  <i class="fa fa-sign-in" style="text-align: right; float: right;padding-top: 3%; padding-right: 1%"></i>
+  </a>
+        
+        
+        </span>
+      <div class="logmod__container">
+      <ul class="logmod__tabs">
+                <li data-tabtar="lgm-1"><a id="tab1" href="#">Map</a></li>
+                <li data-tabtar="lgm-2"><a id="tab2" href="#">Track</a></li>
+             <!--    <li data-tabtar="lgm-3"><a id="tab3" href="#">Profile</a></li>-->
+            </ul>
+
+  
+
+            <div class="logmod__tab-wrapper">
+            
+                 <div class="logmod__tab lgm-1">  <!-- this is map-->
+         		 <div class="input-group" style="margin-right:2%;padding-top:0%;margin-top:2%;margin-left:2%;margin-bottom:2%;font-family:tahoma, arial, sans-serif;">
+         
+             	 <input id="address" type="text" class="form-control" placeholder="Search Your location" />
+             	<span id="empty" class="input-group-addon">
+               	<!-- <a href="#" class="fa fa-search"></a> -->
+             	 </span>
+             	 <input id="destination" type="text" class="form-control" placeholder="Search Your Destination" />
+             	 <span id="empty" class="input-group-addon">
+               	 <!-- <a href="#" class="fa fa-search"></a> -->
+             	 </span>
+             	 <span class="input-group-addon">
+             	<!-- <input type="checkbox" checked data-toggle="toggle" data-on="<i class='fa fa-bus'></i>ON" data-off="<i></i>OFF">
+				<input id="toogle-one" type="checkbox" checked data-toggle="toggle"> -->
+            	<button id="button" class="fa fa-bus"></button>
+            	</span>
+        		 
+             
+          		</div>
+          		
+          		<div id="map" class="container text-center">
+     
+            	<script src="js/mapservice.js"></script>
+          	    </div>
+          	    <div id="but-panel">
+               
+               <button type="button" id="findme" data-toggle="modal" data-target="#smallModal" class="btnu btn-primaryu" >Find Stops</button>
+               
+               </div>
+                <div id="right-panel" style="background: rgba(200, 54, 54, 0.2),border-radius:6px;"></div>
+                </div>
+        <div class="logmod__tab lgm-2">
+        <div class="simform__actions">
+        <input id="trackvehicle" onclick="trackVehicle()" class="sumbit" type="submit" value="Track Vehicle">
+     </div>
+     <div id="mapp">       
+            
+            
+            </div>
+            <div id="dist"></div>
+            <div id="timee"></div>           
+        </div>
+             <!--    <div class="logmod__tab lgm-3">
+        <div class="simform__actions">
+        Thokka
+     </div>
+    </div>-->
+      
+      
+ 
+  
+
+      
+      </div>
+  
+             <div class="bs-example">
+      <div id="smallModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+              <h4 class="modal-title">Bus&nbsp;Stops&nbsp;Around&nbsp;You!</h4>
+            </div>
+            <div class="modal-body">
+              <div class="alert alert-info">
+                <h4><b>Select Your Destination</b></h4>
+                <div class="form">
+                <button class="button1" id="b1" onclick="bstp1()"></button><br>
+                <button class="button1" id="b2" onclick="bstp2()"></button><br>
+                <button class="button1" id="b3" onclick="bstp3()"></button><br>
+                <button class="button1" id="b4" onclick="bstp4()"></button><br>
+                <button class="button1" id="b5" onclick="bstp5()"></button>
+ 				 </div>
+              </div>
+              <div class="modal-footer">
+                      
+                              <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+ </div>
+
+ 
+ <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlZWSTsJPv3yRfVUnSxaXtbl-Dv6Bspek&signed_in=false&libraries=places&callback=initMap"
+        async defer></script>
+
+<!--    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>  -->
+
+        <script src="js/index.js"></script>
+        
+        
+      </body>
+</html>
